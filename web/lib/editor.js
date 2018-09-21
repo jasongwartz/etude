@@ -1,17 +1,24 @@
 
 const editor = CodeMirror(document.body, {
-  theme: "base16-dark",
   lineNumbers: true,
   mode:  "javascript",
-  fullScreen: true,
+
   extraKeys: {
     "Ctrl-Enter": (cm) => {
       const doc = cm.getDoc()
       const line = doc.getSelection() || doc.getLine(doc.getCursor().line)
       console.log("Eval: ", line)
       eval(line)
+
+      // cm.addOverlay()
     },
   },
+
+  // Addons
+  theme: "base16-dark",
+  fullScreen: true,
+  styleActiveLine: {nonEmpty: true},
+  matchBrackets: true,
 })
 
 

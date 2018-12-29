@@ -6,9 +6,13 @@
   "description": "Live-coded music in the browser",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "browserify": "^16.2.3",
+    "eslint": "^5.11.1",
+    "nodemon": "^1.18.9"
+  },
   "scripts": {
-    "start": "python3 -m http.server",
+    "start": "nodemon --ignore 'dist/*' --exec 'browserify index.js -o dist/main.js && python3 -m http.server'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
